@@ -8,7 +8,7 @@ import { agent } from "./src/agent/agent.js";
 import { EMPTY_BOOKING } from "./src/agent/bookingState.js";
 import { getDoctors } from "./src/domain/dental/lookup.js";
 
-const PORT = 3002;
+const PORT = process.env.PORT || 3002;
 const DEBUG = process.env.DEBUG_VOICE === "1"; // DEBUG_VOICE=1 -> phase + raw Gemini event logs
 
 const GEMINI_MODEL = "gemini-3.5-transcribe-live";
@@ -269,4 +269,6 @@ wss.on("connection", (client) => {
 });
 
 await connectDB();
-server.listen(PORT, () => console.log(`🎤 Voice server running on http://localhost:${PORT}`));
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`🎤 Voice server running on port ${PORT}`);
+});

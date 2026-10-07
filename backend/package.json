@@ -2,10 +2,10 @@
   "name": "ai-voice-agent",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "voiceServer.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js"
+    "start": "node voiceServer.js",
+    "dev": "node --watch voiceServer.js"
   },
   "keywords": [],
   "author": "",
